@@ -1,6 +1,6 @@
 {
   "name": "detect-link-type",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Detects the type of a link",
   "keywords": [
     "detect",
