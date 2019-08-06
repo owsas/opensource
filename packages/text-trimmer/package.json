@@ -1,0 +1,31 @@
+{
+  "name": "@owsas/text-trimmer",
+  "version": "1.0.3",
+  "description": "An npm module that helps you trimming text and adding tailing characters. Ex: Hello, my name...",
+  "keywords": [
+    "text",
+    "trimmer",
+    "trim"
+  ],
+  "author": "Juan Camilo Guarín P <jcguarinpenaranda@gmail.com>",
+  "homepage": "https://github.com/owsas/opensource#readme",
+  "license": "MIT",
+  "main": "dist/text-trimmer.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owsas/opensource.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/owsas/opensource/issues"
+  }
+}
