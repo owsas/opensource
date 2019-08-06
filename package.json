@@ -6,7 +6,7 @@
     "build": "tsc -b",
     "prepublishOnly": "npm run clean && npm run build",
     "publish-npm": "lerna publish -- --access public",
-    "clean": "rm -rf *.tsbuildinfo packages/**/dist packages/**/tsconfig.tsbuildinfo"
+    "clean": "rm -rf *.tsbuildinfo packages/**/dist packages/**/lib packages/**/tsconfig.tsbuildinfo"
   },
   "devDependencies": {
     "@types/jest": "^24.0.17",
