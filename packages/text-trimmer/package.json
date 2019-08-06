@@ -1,6 +1,6 @@
 {
   "name": "@owsas/text-trimmer",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An npm module that helps you trimming text and adding tailing characters. Ex: Hello, my name...",
   "keywords": [
     "text",
