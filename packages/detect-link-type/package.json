@@ -1,0 +1,38 @@
+{
+  "name": "detect-link-type",
+  "version": "1.0.3",
+  "description": "Detects the type of a link",
+  "keywords": [
+    "detect",
+    "link",
+    "type",
+    "jpg",
+    "png",
+    "gif",
+    "svg"
+  ],
+  "author": "Juan Camilo Guarín P <jcguarinpenaranda@gmail.com>",
+  "homepage": "https://github.com/owsas/opensource#readme",
+  "license": "MIT",
+  "main": "dist/detect-link-type.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owsas/opensource.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/owsas/opensource/issues"
+  },
+  "dependencies": {
+    "parseurl": "^1.3.3"
+  }
+}
