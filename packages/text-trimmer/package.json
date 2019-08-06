@@ -10,7 +10,7 @@
   "author": "Juan Camilo Guarín P <jcguarinpenaranda@gmail.com>",
   "homepage": "https://github.com/owsas/opensource#readme",
   "license": "MIT",
-  "main": "dist/text-trimmer.js",
+  "main": "lib/text-trimmer.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
