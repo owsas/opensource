@@ -1,6 +1,6 @@
 {
   "name": "get-generation",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Returns the generation of a person, given it's birth year",
   "keywords": [
     "generation"
