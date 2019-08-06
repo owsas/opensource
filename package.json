@@ -1,6 +1,9 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "test": "npx jest --maxWorkers=2"
+  },
   "devDependencies": {
     "@types/jest": "^24.0.17",
     "@types/node": "^12.6.9",
