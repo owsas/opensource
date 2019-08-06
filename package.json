@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "test": "npx jest --maxWorkers=2",
-    "build": "tsc -b packages/nominatim-js"
+    "build": "tsc -b packages/nominatim-js",
+    "publish-npm": "lerna publish -- --access public"
   },
   "devDependencies": {
     "@types/jest": "^24.0.17",
