@@ -19,5 +19,12 @@
     "**/*.spec.ts",
     "**/*.test.ts",
     "packages/**/dist/*"
+  ],
+  "references": [
+    { "path": "./packages/text-trimmer" },
+    { "path": "./packages/get-generation" },
+    { "path": "./packages/responsive" },
+    { "path": "./packages/nominatim-js" },
+    { "path": "./packages/detect-link-type" },
   ]
 }
