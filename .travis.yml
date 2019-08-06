@@ -4,7 +4,7 @@ node_js:
 
 install:
   - npm ci
-  - cd packages/detect-link-type && npm ci
+  - cd packages/detect-link-type && npm ci && cd ..
 
 # Test the building process is ok too
 after_success:
