@@ -1,3 +1,7 @@
 language: node_js
 node_js:
   - "10"
+
+# Test the building process is ok too
+after_success:
+  - npm run build
