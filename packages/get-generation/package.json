@@ -1,0 +1,29 @@
+{
+  "name": "get-generation",
+  "version": "1.2.3",
+  "description": "Returns the generation of a person, given it's birth year",
+  "keywords": [
+    "generation"
+  ],
+  "author": "Juan Camilo Guarín P <jcguarinpenaranda@gmail.com>",
+  "homepage": "https://github.com/owsas/opensource#readme",
+  "license": "MIT",
+  "main": "dist/get-generation.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owsas/opensource.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/owsas/opensource/issues"
+  }
+}
