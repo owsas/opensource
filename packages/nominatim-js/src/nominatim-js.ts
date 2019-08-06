@@ -1,4 +1,4 @@
-import * as superagent from 'superagent';
+import fetch from 'cross-fetch';
 
 // from: https://wiki.openstreetmap.org/wiki/Nominatim#Parameters_2
 export interface INominatimParams {
@@ -56,7 +56,7 @@ export interface INominatimResult {
 
 export class NominatimJS {
 
-  public static async search(params: INominatimParams): Promise<INominatimResult[]> {
+  public static search(params: INominatimParams): Promise<INominatimResult[]> {
     params.format = params.format || 'json';
 
     // transform country codes array
@@ -69,9 +69,10 @@ export class NominatimJS {
       params['accept-language'] = params.accept_language;
     }
 
-    return await superagent
-      .get('https://nominatim.openstreetmap.org/search')
-      .query(params)
-      .then((res) => res.body || []);
+    const url = new URL('https://nominatim.openstreetmap.org/search');
+    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+    return fetch(url.toJSON())
+      .then(res => res.json());
   }
 }
