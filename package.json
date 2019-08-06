@@ -4,6 +4,7 @@
   "scripts": {
     "test": "npx jest --maxWorkers=2",
     "build": "tsc -b",
+    "prepublishOnly": "npm run build",
     "publish-npm": "lerna publish -- --access public"
   },
   "devDependencies": {
