@@ -1,0 +1,34 @@
+{
+  "name": "@owsas/responsive",
+  "version": "1.0.0",
+  "description": "Validators to detect if you are running on big or small screens, using a similar approach to Bootstrap, defining xs, sm, md or lg screen breakpoints.",
+  "keywords": [
+    "responsive",
+    "breakpoint",
+    "bootstrap",
+    "css",
+    "frontend",
+    "ui"
+  ],
+  "author": "Juan Camilo Guarín P <jcguarinpenaranda@gmail.com>",
+  "homepage": "https://github.com/owsas/opensource#readme",
+  "license": "MIT",
+  "main": "dist/responsive.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owsas/opensource.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/owsas/opensource/issues"
+  }
+}
