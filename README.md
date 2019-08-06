@@ -1,4 +1,5 @@
 # Open Source Packages
+![tests](https://travis-ci.com/owsas/opensource.svg?branch=master)
 
 Collection of open source packages :D!
 
