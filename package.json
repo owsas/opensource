@@ -5,15 +5,19 @@
     "test": "npx jest --maxWorkers=2",
     "build": "tsc -b",
     "prepublishOnly": "npm run clean && npm run build",
+    "update-readme-packages": "ts-node scripts/packages.ts update",
     "publish-npm": "lerna publish -- --access public",
     "clean": "rm -rf *.tsbuildinfo packages/**/dist packages/**/lib packages/**/tsconfig.tsbuildinfo"
   },
   "devDependencies": {
     "@types/jest": "^24.0.17",
     "@types/node": "^12.6.9",
+    "glob": "^7.1.4",
     "jest": "^24.8.0",
+    "js-fire": "^0.4.0",
     "lerna": "^3.16.4",
     "ts-jest": "^24.0.2",
+    "ts-node": "^8.4.1",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
   },
