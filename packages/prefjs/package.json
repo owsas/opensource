@@ -6,6 +6,7 @@
   "homepage": "https://github.com/owsas/opensource#readme",
   "license": "MIT",
   "main": "lib/prefjs.js",
+  "keywords": ["i18n", "internationalization", "internationalisation", "preferences", "config", "locale"],
   "directories": {
     "lib": "lib",
     "test": "__tests__"
