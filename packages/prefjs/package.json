@@ -1,12 +1,19 @@
 {
   "name": "prefjs",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Manage preferences and internationalization for multiple locales very easily in Javascript",
   "author": "Juan Camilo Guarín Peñaranda <jcguarinpenaranda@gmail.com>",
   "homepage": "https://github.com/owsas/opensource#readme",
   "license": "MIT",
   "main": "lib/prefjs.js",
-  "keywords": ["i18n", "internationalization", "internationalisation", "preferences", "config", "locale"],
+  "keywords": [
+    "i18n",
+    "internationalization",
+    "internationalisation",
+    "preferences",
+    "config",
+    "locale"
+  ],
   "directories": {
     "lib": "lib",
     "test": "__tests__"
