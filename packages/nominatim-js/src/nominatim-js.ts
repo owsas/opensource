@@ -1,4 +1,4 @@
-import * as superagent from 'superagent';
+import fetch from 'cross-fetch';
 
 interface ICommonParams {
   format?: 'html' | 'json' | 'xml' | 'jsonv2'
@@ -107,25 +107,28 @@ export class NominatimJS {
 
   public static async search(rawParams: ISearchParams): Promise<ISearchResult[]> {
     const params = NominatimJS.normalizeParams(rawParams);
+    const countryCodes = params.countrycodes || (params.countryCodesArray ? params.countryCodesArray.join(',') : undefined);
 
-    return await superagent
-      .get(`${NominatimJS.NOMINATIM_ENDPOINT}search`)
-      .query({
-        ...params,
-        countrycodes: params.countrycodes || (params.countryCodesArray ? params.countryCodesArray.join(',') : undefined)
-      })
-      .then((res: superagent.Response) => res.body || []);
+    const url = new URL(`${NominatimJS.NOMINATIM_ENDPOINT}search`);
+    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+    if (countryCodes) {
+      url.searchParams.append('countrycodes', countryCodes);
+    }
+
+    return fetch(url.toJSON())
+      .then(res => res.json());
   }
 
   public static async lookup(osmIds: IOsmId[], rawParams: ILookupParams): Promise<ISearchResult[]> {
     const params = NominatimJS.normalizeParams(rawParams);
 
-    return await superagent
-      .get(`${NominatimJS.NOMINATIM_ENDPOINT}lookup`)
-      .query({
-        ...params,
-        osm_ids: osmIds.map(NominatimJS.stringifyOsmId).join(',')
-      })
-      .then((res: superagent.Response) => res.body || [])
+    const url = new URL(`${NominatimJS.NOMINATIM_ENDPOINT}lookup`);
+    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+    url.searchParams.append('osm_ids', osmIds.map(NominatimJS.stringifyOsmId).join(','));
+
+    return fetch(url.toJSON())
+      .then(res => res.json());
   }
 }
