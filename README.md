@@ -7,6 +7,9 @@ Collection of open source packages :D!
 
 ## Packages
 
+## prefjs
+Manage preferences and internationalization for multiple locales very easily in Javascript
+
 ## detect-link-type
 Detects the type of a link
 
