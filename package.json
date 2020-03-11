@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "cross-fetch": "^3.0.4",
+    "dot-prop": "^5.2.0",
     "superagent": "^5.2.2"
   }
 }
