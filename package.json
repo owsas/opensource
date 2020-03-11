@@ -12,6 +12,7 @@
   "devDependencies": {
     "@types/jest": "^24.0.17",
     "@types/node": "^12.6.9",
+    "@types/superagent": "^4.1.7",
     "glob": "^7.1.4",
     "jest": "^24.8.0",
     "js-fire": "^0.4.0",
@@ -22,6 +23,7 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
-    "cross-fetch": "^3.0.4"
+    "cross-fetch": "^3.0.4",
+    "superagent": "^5.2.2"
   }
 }
