@@ -7,25 +7,21 @@ Collection of open source packages :D!
 
 ## Packages
 
-<!-- start packages -->
-
-## detect-link-type@1.0.6  
+## detect-link-type
 Detects the type of a link
 
-## get-generation@1.2.6  
+## get-generation  
 Returns the generation of a person, given it's birth year
 
-## nominatim-js@1.0.5  
+## nominatim-js
 Unofficial JS SDK for the Nominatim Open Street Map service that allows geocoding and reverse geocoding
 
-## @owsas/responsive@1.0.6  
+## @owsas/responsive
 Validators to detect if you are running on big or small screens, using a similar approach to Bootstrap, defining xs, sm, md or lg screen breakpoints.
 
-## @owsas/text-trimmer@1.0.6  
+## @owsas/text-trimmer
 An npm module that helps you trimming text and adding tailing characters. Ex: Hello, my name...
 
-<!-- end packages -->
-    
 
 ## Contributors
 Juan Camilo Guarín Peñaranda  
