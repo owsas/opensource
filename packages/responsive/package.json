@@ -1,6 +1,6 @@
 {
   "name": "@owsas/responsive",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Validators to detect if you are running on big or small screens, using a similar approach to Bootstrap, defining xs, sm, md or lg screen breakpoints.",
   "keywords": [
     "responsive",
@@ -30,5 +30,6 @@
   },
   "bugs": {
     "url": "https://github.com/owsas/opensource/issues"
-  }
+  },
+  "gitHead": "4e10e9c96486ca4997b1f4e2cea576881b700d9c"
 }

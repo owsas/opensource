@@ -1,6 +1,6 @@
 {
   "name": "get-generation",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "Returns the generation of a person, given it's birth year",
   "keywords": [
     "generation"
@@ -25,5 +25,6 @@
   },
   "bugs": {
     "url": "https://github.com/owsas/opensource/issues"
-  }
+  },
+  "gitHead": "4e10e9c96486ca4997b1f4e2cea576881b700d9c"
 }
