@@ -21,4 +21,10 @@ describe('Getting results', () => {
     expect(typeof result.type === 'string').toBe(true);
     expect(typeof result.importance === 'number').toBe(true);
   });
+
+  test('Given a latitude and longitude: should be able to do reverse geocoding', async () => {
+    const response = await NominatimJS.search({ q: '48.8583701,2.2942077' });
+    expect(Array.isArray(response)).toBe(true);
+    expect(response[0].place_id).toBeTruthy();
+  });
 });
