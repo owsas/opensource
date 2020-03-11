@@ -55,7 +55,10 @@ export interface INominatimResult {
 }
 
 export class NominatimJS {
-
+  /**
+   * Searches against Nominatim
+   * @param params
+   */
   public static search(params: INominatimParams): Promise<INominatimResult[]> {
     params.format = params.format || 'json';
 
