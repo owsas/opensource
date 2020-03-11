@@ -19,7 +19,8 @@
     "node_modules",
     "**/*.spec.ts",
     "**/*.test.ts",
-    "packages/**/dist/*"
+    "packages/**/examples/*",
+    "packages/**/lib/*"
   ],
   "references": [
     { "path": "./packages/text-trimmer" },
