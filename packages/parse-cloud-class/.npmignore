@@ -1,0 +1,10 @@
+src/
+node_modules/
+test/
+tsconfig.json
+tslint.json
+coverage/
+.vscode/
+logs
+.gitignore
+.travis.yml

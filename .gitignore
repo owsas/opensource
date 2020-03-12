@@ -14,3 +14,7 @@ packages/*/lib
 packages/*/src/*.js
 packages/*/src/*.d.ts
 packages/*/src/*.js.map
+
+# Parse Server files
+parse-server.err.*
+parse-server.info.*

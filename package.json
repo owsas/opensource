@@ -12,6 +12,7 @@
   "devDependencies": {
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.0",
+    "@types/parse": "^2.10.18",
     "@types/superagent": "^4.1.7",
     "glob": "^7.1.4",
     "jest": "^24.8.0",
@@ -24,7 +25,12 @@
   },
   "dependencies": {
     "cross-fetch": "^3.0.4",
+    "delay": "^4.3.0",
     "dot-prop": "^5.2.0",
+    "express": "^4.17.1",
+    "is": "^3.3.0",
+    "parse": "^2.11.0",
+    "parse-server": "^4.1.0",
     "superagent": "^5.2.2"
   }
 }
