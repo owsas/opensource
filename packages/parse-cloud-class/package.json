@@ -1,0 +1,34 @@
+{
+  "name": "parse-server-addon-cloud-class",
+  "version": "1.1.1",
+  "description": "A new way to define Parse.Cloud events for your classes",
+  "keywords": [
+    "parse",
+    "parse-community",
+    "parse-server",
+    "backend",
+    "easy",
+    "mongodb"
+  ],
+  "author": "Juan Camilo Guarín Peñaranda <jcguarinpenaranda@gmail.com>",
+  "homepage": "https://github.com/owsas/opensource/tree/master/packages/parse-cloud-class",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owsas/opensource.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/owsas/opensource/issues"
+  }
+}
