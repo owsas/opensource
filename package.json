@@ -10,7 +10,7 @@
     "clean": "rm -rf *.tsbuildinfo packages/**/dist packages/**/lib packages/**/tsconfig.tsbuildinfo"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.17",
+    "@types/jest": "^25.1.4",
     "@types/node": "^13.9.0",
     "@types/superagent": "^4.1.7",
     "glob": "^7.1.4",
