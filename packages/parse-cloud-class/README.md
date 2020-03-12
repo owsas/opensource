@@ -32,6 +32,7 @@ A working example can be found here: https://github.com/owsas/parse-cloud-class-
 * Parse >1.10.0
 * Parse >=2.0
 * Parse >=3.0
+* Parse >=4.0
 
 ## New: Configuration with objects
 Starting april 2019 (v1.1.0), it's possible to create classes with configuration objects

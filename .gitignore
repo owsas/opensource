@@ -11,9 +11,9 @@ scripts/*.js.map
 packages/*/dist
 packages/*/lib
 *.tsbuildinfo
-packages/*/src/*.js
-packages/*/src/*.d.ts
-packages/*/src/*.js.map
+packages/*/src/**/*.js
+packages/*/src/**/*.d.ts
+packages/*/src/**/*.js.map
 
 # Parse Server files
 parse-server.err.*
