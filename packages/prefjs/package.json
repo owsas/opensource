@@ -1,6 +1,6 @@
 {
   "name": "prefjs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Manage preferences and internationalization for multiple locales very easily in Javascript",
   "author": "Juan Camilo Guarín Peñaranda <jcguarinpenaranda@gmail.com>",
   "homepage": "https://github.com/owsas/opensource#readme",
