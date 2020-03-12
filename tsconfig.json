@@ -28,5 +28,7 @@
     { "path": "./packages/responsive" },
     { "path": "./packages/nominatim-js" },
     { "path": "./packages/detect-link-type" },
+    { "path": "./packages/prefjs" },
+    { "path": "./packages/parse-cloud-class" }
   ]
 }

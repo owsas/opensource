@@ -1,11 +1,9 @@
 # Parse Cloud Class 
 
-![Travis](https://travis-ci.org/owsas/parse-cloud-class.svg?branch=master) [![codecov](https://codecov.io/gh/owsas/parse-cloud-class/branch/master/graph/badge.svg)](https://codecov.io/gh/owsas/parse-cloud-class)
-
 ![Logo](./repo/logo.jpg)  
 Photo by [chuttersnap](https://unsplash.com/photos/9AqIdzEc9pY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com)
 
-Travis tests: https://travis-ci.org/owsas/parse-cloud-class/builds 
+Travis tests: https://travis-ci.org/owsas/opensource/builds 
 
 A new way to define Parse.Cloud events for your classes (DB tables). With this module you can easily:
 

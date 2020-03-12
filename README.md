@@ -7,6 +7,9 @@ Collection of open source packages :D!
 
 ## Packages
 
+## parse-server-addon-cloud-class / parse-cloud-class
+A new way to define Parse.Cloud events for your classes
+
 ## prefjs
 Manage preferences and internationalization for multiple locales very easily in Javascript
 
