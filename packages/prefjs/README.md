@@ -1,5 +1,7 @@
 # `prefjs`
 
+![](./repo/prefjs-repo.jpg)
+
 This package is meant for internationalization. It helps you define a JSON structure for different locales, and getting the right value back. For example, it could be used for the internationalization of a blog post.  
 
 PrefJS can be used in NodeJS and in the browser, being compatible with all the frameworks, like: React, Angular, Vue, Ember, Next.js...
