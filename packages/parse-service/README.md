@@ -29,7 +29,7 @@ Let's see how the code changes:
 ```js
 // add.js
 import Parse from 'parse';
-import { ParseService } from '@owsas/parse-service';
+import { ParseService } from 'parse-service';
 
 export function addTwoNumbers(a, b) {
   const obj = new Parse.Object('Addition');
