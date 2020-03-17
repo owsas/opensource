@@ -1,0 +1,35 @@
+{
+  "name": "parse-service",
+  "version": "1.0.6",
+  "description": "Easily find, save or delete Parse Objects",
+  "keywords": [
+    "parse",
+    "parse-server",
+    "parse",
+    "cloud",
+    "parseplatform",
+    "cloud",
+    "code"
+  ],
+  "author": "Juan Camilo Guarín Peñaranda <jcguarinpenaranda@gmail.com>",
+  "homepage": "https://github.com/owsas/opensource/tree/master/packages/parse-service",
+  "license": "MIT",
+  "main": "lib/parse-service.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owsas/opensource.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/owsas/opensource/issues"
+  }
+}
