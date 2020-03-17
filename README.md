@@ -13,6 +13,9 @@ A new way to define Parse.Cloud events for your classes
 ## prefjs
 Manage preferences and internationalization for multiple locales very easily in Javascript
 
+## parse-service
+This module exposes a class with static functions that help you find, save or delete Parse Objects with one call.
+
 ## detect-link-type
 Detects the type of a link
 
