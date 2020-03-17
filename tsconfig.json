@@ -20,7 +20,7 @@
     "**/*.spec.ts",
     "**/*.test.ts",
     "packages/**/examples/*",
-    "packages/**/lib/*"
+    "packages/**/lib/**/*"
   ],
   "references": [
     { "path": "./packages/text-trimmer" },

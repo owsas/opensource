@@ -1,7 +1,8 @@
-import { ParseCloudClass } from '../../';
-import requireKey from '../../decorators/requireKey';
+import { ParseCloudClass } from '../..';
+import requireKey from '../../decorators/requireKeyDecorator';
 
 @requireKey('testKey', 'testKey38')
+// @ts-ignore
 class TestClass extends ParseCloudClass {
 }
 
