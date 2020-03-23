@@ -11,7 +11,7 @@ PrefJS can be used in NodeJS and in the browser, being compatible with all the f
 $> npm install prefjs --save
 ```
 
-If you are using Typescript, you will see the types information that comes bundled with this package when you are coding :).
+If you are using Typescript, you will see the types information that comes bundled with this package when you are coding :). Enjoy!
 
 ## Localizing a blog post
 
