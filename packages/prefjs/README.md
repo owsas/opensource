@@ -64,6 +64,36 @@ const postURL = pref.get('postURL', fallbackValue); // https://my-domain.com/?id
 
 The previous code snippet will first search in the currentLocale if __postURL__ existed, or will try to find it in the defaultLocale, and as it does not exist, it will return the fallbackValue provided.
 
+### String formatting
+Starting v1.0.0 you can use string formatting. For this we use the package `printj` (https://github.com/SheetJS/printj) so all its documentation applies.
+
+For this feature, we created the function `getF`. Here is an example:
+
+```ts
+// Language data to use
+const languageData = {
+  en: {
+    formattedString: 'This %s is formatted. Use it %s you need it'
+  }
+}
+
+// Create the instance
+const pref = new PrefJS({ defaultLocale: 'en', currentLocale: 'en' });
+
+// Get a formatted string
+const s = pref.getF('formattedString', 'Fallback', 'string', 'whenever, and however');
+// s = This string is formatted. Use it whenever, and however you need it
+```
+
+As you can see, the second parameter is `"Fallback"`. This is a fallback string that can be used in the case in which the first argument given is not a value in the `languageData` you defined. This string is also formattable so you can expect the subsequent parameters to work fine. Example:
+
+```ts
+const s = pref.getF('i.dont.exist', 'Use this %s %s', 'string', 'as a fallback');
+// s = Use this string as a fallback
+```
+
+Note: it also works with digits and it's possible to do other kinds of string manipulation. Please refer to the `printj` documentation for more.
+
 ## LICENSE
 MIT.
 
