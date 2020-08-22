@@ -1,0 +1,34 @@
+{
+  "name": "imres",
+  "version": "1.0.0",
+  "description": "Image Resize CLI",
+  "keywords": [
+    "image",
+    "resize",
+    "cli"
+  ],
+  "author": "Juan Camilo Guarín Peñaranda <jcguarinpenaranda@gmail.com>",
+  "homepage": "https://github.com/owsas/opensource#readme",
+  "license": "MIT",
+  "main": "lib/imres.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "bin": {
+    "imres": "lib/imres.js"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owsas/opensource.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/owsas/opensource/issues"
+  }
+}

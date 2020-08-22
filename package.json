@@ -24,11 +24,14 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "@caporal/core": "^2.0.2",
     "cross-fetch": "^3.0.4",
     "delay": "^4.3.0",
     "dot-prop": "^5.2.0",
     "express": "^4.17.1",
+    "fast-glob": "^3.2.4",
     "is": "^3.3.0",
+    "jimp": "^0.14.0",
     "parse": "^2.11.0",
     "parse-server": "^4.1.0",
     "superagent": "^5.2.2"
