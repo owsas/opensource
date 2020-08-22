@@ -31,6 +31,10 @@ Validators to detect if you are running on big or small screens, using a similar
 ## @owsas/text-trimmer
 An npm module that helps you trimming text and adding tailing characters. Ex: Hello, my name...
 
+## Development process
+1. Edit the packages inside the packages/ folder
+2. Commit, create PR
+3. When the PR is merged, run in the master branch `npx lerna publish`
 
 ## Contributors
 Juan Camilo Guarín Peñaranda  

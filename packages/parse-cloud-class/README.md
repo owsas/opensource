@@ -339,7 +339,7 @@ const addonInstance = ParseCloudClass.fromObject(dbAddon);
 
 Developed by Juan Camilo Guarín Peñaranda,  
 Otherwise SAS, Colombia  
-2017
+2017 - present
 
 ## License 
 
