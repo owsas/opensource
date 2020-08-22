@@ -1,4 +1,5 @@
 import { get } from 'dot-prop';
+import * as printj from 'printj';
 
 export default class PrefJS {
   private defaultLocale = 'en';
@@ -99,5 +100,18 @@ export default class PrefJS {
     }
 
     return value;
+  }
+
+  /**
+   * Gets a value from the loaded data, and uses
+   * `printj` to format it.
+   * @param path
+   * @param fallbackValue
+   * @param params All the items to format in the string
+   */
+  getF(path: string, fallbackValue?: string, ...params: any[]): string {
+    // Get the string using the last parameter as the fallback value
+    const str = this.get(path, fallbackValue);
+    return printj.sprintf(str, ...params);
   }
 }

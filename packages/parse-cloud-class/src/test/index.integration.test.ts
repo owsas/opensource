@@ -3,8 +3,7 @@ import fetch from 'cross-fetch';
 import * as Parse from 'parse/node';
 import delay from 'delay';
 import * as path from 'path';
-
-const { ParseServer } = require('parse-server');
+import { ParseServer } from 'parse-server';
 
 const appId = 'myAppId';
 const javascriptKey = 'jsKey';
