@@ -32,6 +32,6 @@
     "parse": "^2.11.0",
     "parse-server": "^4.1.0",
     "printj": "^1.2.2",
-    "superagent": "^5.2.2"
+    "superagent": "^6.0.0"
   }
 }
