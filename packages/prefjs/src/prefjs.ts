@@ -4,7 +4,7 @@ import * as printj from 'printj';
 export default class PrefJS {
   private defaultLocale = 'en';
   private currentLocale: string = this.defaultLocale;
-  private data = {};
+  private data: { [k: string]: { [j: string]: any } } = {};
 
   constructor(params?: { defaultLocale: string, currentLocale?: string }) {
     if (params?.defaultLocale) {
@@ -81,6 +81,36 @@ export default class PrefJS {
    */
   getLocalesConfigured(): string[] {
     return Object.keys(this.data);
+  }
+
+  /**
+   * Returns the current locale
+   * @example
+   * getCurrentLocale()
+   * // 'es'
+   */
+  getCurrentLocale(): string {
+    return this.currentLocale;
+  }
+
+  /**
+   * Returns the default locale
+   * @example
+   * getDefaultLocale()
+   * // 'en'
+   */
+  getDefaultLocale(): string {
+    return this.defaultLocale;
+  }
+
+  /**
+   * Returns the configured data
+   * @example
+   * getConfiguredData()
+   * // { es: { title: 'Hola' }, en: { title: 'Hello' } }
+   */
+  getConfiguredData() {
+    return this.data;
   }
 
   /**
