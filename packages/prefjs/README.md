@@ -6,12 +6,20 @@ This package is meant for internationalization. It helps you define a JSON struc
 
 PrefJS can be used in NodeJS and in the browser, being compatible with all the frameworks, like: React, Angular, Vue, Ember, Next.js...
 
+## Dependencies
+This package depends on `printj`. Please install it also :)
+```
+$> npm install printj --save
+```
+
 ## Installing the package
 ```
 $> npm install prefjs --save
 ```
 
 If you are using Typescript, you will see the types information that comes bundled with this package when you are coding :). Enjoy!
+
+NOTE: This package weights only 2KB, and even less when gzipped
 
 ## Localizing a blog post
 
