@@ -9,7 +9,8 @@ interface ICommonParams {
   extratags?: 0 | 1
   namedetails?: 0 | 1
   email?: string
-  debug?: 0 | 1
+  debug?: 0 | 1,
+  endpoint?: string, // custom open street map endpoint
 }
 
 // from: https://wiki.openstreetmap.org/wiki/Nominatim#Parameters_2
@@ -28,7 +29,7 @@ export interface ISearchParams extends ICommonParams {
   email?: string,
   exclude_place_ids?: string,
   limit?: number,
-  dedupe?: 0 | 1
+  dedupe?: 0 | 1,
 }
 
 export interface IAddress {
@@ -105,11 +106,17 @@ export class NominatimJS {
     return `${PLACES_TYPES[osmId.type]}${osmId.id}`;
   }
 
+  /**
+   * Searches based on the given information. By default searches
+   * against the Open Street Map Nominatim server. A custom endpoint
+   * could be defined, using the "endpoint" parameter.
+   * @param rawParams
+   */
   public static async search(rawParams: ISearchParams): Promise<ISearchResult[]> {
     const params = NominatimJS.normalizeParams(rawParams);
     const countryCodes = params.countrycodes || (params.countryCodesArray ? params.countryCodesArray.join(',') : undefined);
 
-    const url = new URL(`${NominatimJS.NOMINATIM_ENDPOINT}search`);
+    const url = new URL(rawParams.endpoint || `${NominatimJS.NOMINATIM_ENDPOINT}search`);
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
     if (countryCodes) {
@@ -120,10 +127,15 @@ export class NominatimJS {
       .then(res => res.json());
   }
 
+  /**
+   * Looks up for an array of given Open Street Map ids
+   * @param osmIds
+   * @param rawParams
+   */
   public static async lookup(osmIds: IOsmId[], rawParams: ILookupParams): Promise<ISearchResult[]> {
     const params = NominatimJS.normalizeParams(rawParams);
 
-    const url = new URL(`${NominatimJS.NOMINATIM_ENDPOINT}lookup`);
+    const url = new URL(rawParams.endpoint || `${NominatimJS.NOMINATIM_ENDPOINT}lookup`);
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
     url.searchParams.append('osm_ids', osmIds.map(NominatimJS.stringifyOsmId).join(','));
