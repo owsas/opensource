@@ -102,6 +102,78 @@ const s = pref.getF('i.dont.exist', 'Use this %s %s', 'string', 'as a fallback')
 
 Note: it also works with digits and it's possible to do other kinds of string manipulation. Please refer to the `printj` documentation for more.
 
+## Working with translations set in object keys
+In this use case, you would have for example an object with the following format:
+
+```js
+const object = {
+  text: 'Hello',
+  text_es: 'Hola',
+  text_fr: 'Bonjour',
+  text_pt: 'Oi',
+};
+```
+Note: you can have as many *_language* keys as you would like in your object, the above is just an example.
+
+Now, you could initialize your PrefJS instance as follows:
+```js
+const pref = new PrefJS({ defaultLocale: 'en' });
+```
+
+Let's get the text in english:
+```js
+pref.getFromObject(object, 'text'); // Hello
+```
+
+And, in other languages:
+```js
+// Portuguese
+pref.setCurrentLocale('pt');
+pref.getFromObject(object, 'text'); // Oi
+
+// Spanish
+pref.setCurrentLocale('es');
+pref.getFromObject(object, 'text'); // Hola
+
+// French
+pref.setCurrentLocale('fr');
+pref.getFromObject(object, 'text'); // Bonjour
+```
+
+You may combine different keys in the same object:
+```js
+const object2 = {
+  description: 'I am a product',
+  description_es: 'Yo soy un producto',
+  title: 'T-shirt - XL',
+  title_es: 'Camiseta - XL'
+};
+
+pref.getFromObject(object2, 'title'); // T-shirt - XL
+pref.getFromObject(object2, 'description'); // I am a product
+
+// And in spanish
+pref.setCurrentLocale('es'); // change to spanish
+pref.getFromObject(object2, 'title'); // Camiseta - XL
+pref.getFromObject(object2, 'description'); // Yo soy un producto
+```
+
+If the value in a specific locale is not found, you will get the default language value. Example:
+```js
+const object3 = {
+  description: 'I am a product',
+  title: 'T-shirt - XL',
+  title_es: 'Camiseta - XL'
+};
+
+pref.setCurrentLocale('es'); // change to spanish
+pref.getFromObject(object, 'title'); // Camiseta - XL
+pref.getFromObject(object, 'description'); // I am a product
+```
+As you can see, in this case the *description_es* key was not found in the object, so the value under the *description* key was returned.  
+
+**IMPORTANT:** You can use much more than just strings. In fact, any value from javascript is valid, including Dates, numbers, boolean values, objects... give it a try!
+
 ## LICENSE
 MIT.
 
