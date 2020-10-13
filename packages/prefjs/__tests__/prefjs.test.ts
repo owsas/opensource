@@ -75,4 +75,28 @@ describe('prefjs', () => {
     const expected = 'Use this to format my 10 strings, here I have another string with way more characters to format';
     expect(actual).toEqual(expected);
   });
+
+  describe('#getFromObject', () => {
+    test.each([
+      // Different locale as default
+      ['en', 'es', { text: 'Hello', text_es: 'Hola' }, 'text', 'Hola'],
+      ['fr', 'en', { message: 'Bonjour', message_en: 'Hello' }, 'message', 'Hello'],
+      ['fr', 'en', { message: 123, message_en: 456 }, 'message', 456], // not only strings
+      ['fr', 'en', { show: true, show_en: false }, 'show', false], // not only strings
+      ['pt', 'es', { show: { ok: true }, show_es: { ok: false } }, 'show',  { ok: false }], // objects
+
+      // Same locale as default
+      ['fr', 'fr', { message: 'Bonjour', message_en: 'Hello' }, 'message', 'Bonjour'],
+      ['es', 'es', { message: 123, message_en: 456 }, 'message', 123], // not only strings
+      ['en', 'en', { show: true, show_en: false }, 'show', false], // overriden value
+      ['en', 'en', { show: true, show_es: false }, 'show', true], // overriden
+      ['pt', 'pt', { show: { ok: true }, show_en: { ok: false } }, 'show',  { ok: true }], // objects
+    ])(
+      'Using default locale %p and current locale %p, if given %p and the key %p, returns %p',
+      (defaultLocale, currentLocale, obj, key, expected) => {
+        const instance = new PrefJS({ defaultLocale, currentLocale });
+        expect(instance.getFromObject(obj, key)).toEqual(expected);
+      }
+    );
+  });
 });

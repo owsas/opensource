@@ -144,4 +144,15 @@ export default class PrefJS {
     const str = this.get(path, fallbackValue);
     return printj.sprintf(str, ...params);
   }
+
+  /**
+   * Processes an object with lang keys added
+   * @param obj
+   * @example
+   * Input: { text: 'Prueba', text_en: 'Test' }
+   */
+  getFromObject(obj: any, key: string): any {
+    const value = obj[`${key}_${this.currentLocale}`];
+    return typeof value === 'undefined' ? obj[key]: value;
+  }
 }
