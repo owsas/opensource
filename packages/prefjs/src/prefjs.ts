@@ -151,8 +151,20 @@ export default class PrefJS {
    * @example
    * Input: { text: 'Prueba', text_en: 'Test' }
    */
-  getFromObject(obj: any, key: string): any {
-    const value = obj[`${key}_${this.currentLocale}`];
-    return typeof value === 'undefined' ? obj[key]: value;
+  getFromObject(obj: any, key: string, params: {
+    customLocale?: string;
+    fallbackValue?: string;
+  } = {}): any {
+    const value = obj[`${key}_${params.customLocale || this.currentLocale}`];
+
+    if (typeof value !== 'undefined') {
+      return value;
+    }
+
+    if (typeof params.fallbackValue !== 'undefined') {
+      return params.fallbackValue;
+    }
+
+    return obj[key];
   }
 }
