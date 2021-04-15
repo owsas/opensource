@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "cross-fetch": "^3.0.5",
-    "delay": "^4.4.0",
+    "delay": "^5.0.0",
     "dot-prop": "^6.0.0",
     "express": "^4.17.1",
     "is": "^3.3.0",
