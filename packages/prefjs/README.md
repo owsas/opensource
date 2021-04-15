@@ -156,6 +156,10 @@ pref.getFromObject(object2, 'description'); // I am a product
 pref.setCurrentLocale('es'); // change to spanish
 pref.getFromObject(object2, 'title'); // Camiseta - XL
 pref.getFromObject(object2, 'description'); // Yo soy un producto
+
+// Get data in other locale although pref main
+// locale is currently set to 'es'
+pref.getFromObject(object2, 'description', { customLocale: 'en' }); // I am a product
 ```
 
 If the value in a specific locale is not found, you will get the default language value. Example:

@@ -98,5 +98,28 @@ describe('prefjs', () => {
         expect(instance.getFromObject(obj, key)).toEqual(expected);
       }
     );
+
+    // Test customLocale
+    test.each([
+      ['en', 'es', { customLocale: 'es' }, { text: 'Hello', text_es: 'Hola' }, 'text', 'Hola'],
+      ['en', 'es', { customLocale: 'en' }, { text: 'Hello', text_es: 'Hola' }, 'text', 'Hello'],
+    ])(
+      'Using default locale %p and current locale %p with params %p, if given %p and the key %p, returns %p',
+      (defaultLocale, currentLocale, params, obj, key, expected) => {
+        const instance = new PrefJS({ defaultLocale, currentLocale });
+        expect(instance.getFromObject(obj, key, params)).toEqual(expected);
+      }
+    );
+
+    // Test fallback values
+    test.each([
+      ['en', 'es', { customLocale: 'pt', fallbackValue: '' }, { text: 'Hello', text_es: 'Hola' }, 'text', ''],
+    ])(
+      'Using default locale %p and current locale %p with params %p, if given %p and the key %p, returns %p',
+      (defaultLocale, currentLocale, params, obj, key, expected) => {
+        const instance = new PrefJS({ defaultLocale, currentLocale });
+        expect(instance.getFromObject(obj, key, params)).toEqual(expected);
+      }
+    );
   });
 });
