@@ -72,6 +72,38 @@ const postURL = pref.get('postURL', fallbackValue); // https://my-domain.com/?id
 
 The previous code snippet will first search in the currentLocale if __postURL__ existed, or will try to find it in the defaultLocale, and as it does not exist, it will return the fallbackValue provided.
 
+### Fallback language support
+
+```js
+const PrefJS = require('prefjs');
+
+const blogPost = {
+  id: '123',
+  en: {
+    title: 'My title',
+    config: {
+      showImage: true,
+    },
+  },
+  es: {
+    title: 'Mi título',
+    description: 'Test 123',
+  },
+  es_CO: {
+    title: 'Mi título en Colombia'
+  }
+};
+
+const pref = new PrefJS({ defaultLocale: 'en', currentLocale: 'es_CO' });
+pref.setGlobalData(blogPost);
+```
+
+The library also provides support for a language fallback to another. In the example, both `es` and `es_CO` were configured.
+
+Explanation:
+* `es_CO` will fallback to `es` if you try to do `pref.get('description')`. Please note that description is not set in `es_CO`.
+* `es` must be configured for `es_CO` to fall back to it. If it is not, it will default to `defaultLocale`
+
 ### String formatting
 Starting v1.0.0 you can use string formatting. For this we use the package `printj` (https://github.com/SheetJS/printj) so all its documentation applies.
 
