@@ -4,7 +4,7 @@
   "scripts": {
     "test": "npx jest --maxWorkers=2",
     "build": "tsc -b",
-    "prepublishOnly": "npm run clean && npm run build",
+    "clean-build": "npm run clean && npm run build",
     "update-readme-packages": "ts-node scripts/packages.ts update",
     "publish-npm": "lerna publish -- --access public && npm run update-readme-packages",
     "clean": "rm -rf *.tsbuildinfo packages/**/dist packages/**/lib packages/**/tsconfig.tsbuildinfo"
