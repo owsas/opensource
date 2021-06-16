@@ -9,10 +9,16 @@ const data = {
     formatted2: 'Use %s to format my %d strings, %s I have another string with %s more characters to %s',
     fallbackValue: 'If other values do not exist, I will fallback here'
   },
+  en_US: {
+    title: 'My page for the US'
+  },
   es: {
     title: 'Mi página',
     description: 'Post de blog de prueba',
     deep: { test: 'Parámetro de prueba' }
+  },
+  es_CO: {
+    title: 'Mi página 2'
   },
   fr: {
     title: 'Ma page',
@@ -76,6 +82,27 @@ describe('prefjs', () => {
     expect(actual).toEqual(expected);
   });
 
+  it('Given a path for "en_US": should get the data from "en_US" if found', () => {
+    pref.setCurrentLocale('en_US');
+    const actual = pref.get('title');
+    const expected = data.en_US.title;
+    expect(actual).toEqual(expected);
+  });
+
+  it('Given a path for "en_US": should get the data from "en" if not found', () => {
+    pref.setCurrentLocale('en_US');
+    const actual = pref.get('description');
+    const expected = data.en.description;
+    expect(actual).toEqual(expected);
+  });
+
+  it('Given a path for "es_CO": should get the data from "en" as a fallback if not found on "es"', () => {
+    pref.setCurrentLocale('es_CO');
+    const actual = pref.get('fallbackValue');
+    const expected = data.en.fallbackValue;
+    expect(actual).toEqual(expected);
+  });
+
   describe('#getFromObject', () => {
     test.each([
       // Different locale as default
@@ -122,4 +149,22 @@ describe('prefjs', () => {
       }
     );
   });
+
+  describe('#hasLocale', () => {
+    it('Should detect if a language is configured', () => {
+      const pref = new PrefJS({ defaultLocale: 'en', currentLocale: 'en' });
+      pref.setLocaleData('en', { title: 'test' });
+
+      expect(pref.hasLocale('en')).toBe(true);
+    });
+
+    it('Should detect if a language is not configured', () => {
+      const pref = new PrefJS({ defaultLocale: 'en', currentLocale: 'en' });
+      pref.setLocaleData('en', { title: 'test' });
+
+      expect(pref.hasLocale('es')).toBe(false);
+    });
+  });
 });
+
+
