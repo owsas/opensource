@@ -4,6 +4,7 @@ import * as printj from 'printj';
 export default class PrefJS {
   private defaultLocale = 'en';
   private currentLocale: string = this.defaultLocale;
+  private parentLocale: string = null;
   private data: { [k: string]: { [j: string]: any } } = {};
 
   constructor(params?: { defaultLocale: string, currentLocale?: string }) {
@@ -13,6 +14,21 @@ export default class PrefJS {
       if (params.currentLocale) {
         this.currentLocale = params.currentLocale;
       }
+    }
+
+    this.updateParentLocale();
+  }
+
+  /**
+   * Updates the parent locale
+   */
+  updateParentLocale() {
+    // Test if the language is something like en_US
+    const localeParts: string[] = this.currentLocale.split['_'] || [];
+    if (localeParts.length > 1) {
+      this.parentLocale = localeParts[0]; // en
+    } else {
+      this.parentLocale = null;
     }
   }
 
@@ -33,6 +49,7 @@ export default class PrefJS {
    */
   setCurrentLocale(locale: string): PrefJS {
     this.currentLocale = locale;
+    this.updateParentLocale();
     return this;
   }
 
@@ -64,6 +81,15 @@ export default class PrefJS {
   setLocaleData(locale: string, data: any): PrefJS {
     this.data[locale] = data;
     return this;
+  }
+
+  /**
+   * Tells if the current instance's data
+   * has the given locale
+   * @param locale
+   */
+  hasLocale(locale: string): boolean {
+    return !!this.data[locale];
   }
 
   /**
@@ -126,7 +152,15 @@ export default class PrefJS {
     // If the value is undefined, try to get the value
     // from the default locale
     if (typeof value === 'undefined') {
-      value = get(this.data[this.defaultLocale], path, fallbackValue);
+      // Try to get from the parent locale
+      if (this.parentLocale && this.hasLocale(this.parentLocale)) {
+        value = get(this.data[this.parentLocale], path, fallbackValue);
+      }
+
+      // Try to get from the default locale
+      if (typeof value === 'undefined') {
+        value = get(this.data[this.defaultLocale], path, fallbackValue);
+      }
     }
 
     return value;
