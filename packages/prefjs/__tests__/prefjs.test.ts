@@ -1,4 +1,4 @@
-import PrefJS from '../src/prefjs';
+import PrefJS, { getParentLocale } from '../src/prefjs';
 
 const data = {
   en: {
@@ -182,4 +182,12 @@ describe('prefjs', () => {
   });
 });
 
+describe('#getParentLocale', () => {
+  it('Given en_US: should return en', () => {
+    expect(getParentLocale('en_US')).toEqual('en');
+  });
 
+  it('Given en: should return en', () => {
+    expect(getParentLocale('en')).toEqual('en');
+  });
+});
