@@ -1,6 +1,17 @@
 import { get } from 'dot-prop';
 import * as printj from 'printj';
 
+/**
+ * Given "en_US", will return "en"
+ * @param locale
+ * @returns The parent locale
+ * @example
+ * getParentLocale('en_US') // en
+ */
+export function getParentLocale(locale: string) {
+  return locale.split('_')[0];
+}
+
 export default class PrefJS {
   private defaultLocale = 'en';
   private currentLocale: string = this.defaultLocale;
@@ -198,14 +209,24 @@ export default class PrefJS {
   } = {}): any {
     const value = obj[`${key}_${params.customLocale || this.currentLocale}`];
 
+    // Value from the object
     if (typeof value !== 'undefined') {
       return value;
     }
 
+    // Test parent locale
+    const parentLocale = getParentLocale(params.customLocale || this.currentLocale);
+    const valueFromParent = obj[`${key}_${parentLocale}`];
+    if (typeof valueFromParent !== 'undefined') {
+      return valueFromParent;
+    }
+
+    // Test with fallback value
     if (typeof params.fallbackValue !== 'undefined') {
       return params.fallbackValue;
     }
 
+    // Return the value from the object
     return obj[key];
   }
 }

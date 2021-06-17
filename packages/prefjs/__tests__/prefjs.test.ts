@@ -121,6 +121,8 @@ describe('prefjs', () => {
       ['fr', 'en', { message: 123, message_en: 456 }, 'message', 456], // not only strings
       ['fr', 'en', { show: true, show_en: false }, 'show', false], // not only strings
       ['pt', 'es', { show: { ok: true }, show_es: { ok: false } }, 'show',  { ok: false }], // objects
+      ['pt', 'es_CO', { show: { ok: true }, show_es: { ok: false } }, 'show',  { ok: false }], // parent locale
+      ['pt', 'es_CO', { show: { ok: true }, show_es: { ok: false }, show_es_CO: { ok: 'ok' } }, 'show',  { ok: 'ok' }], // parent locale
 
       // Same locale as default
       ['fr', 'fr', { message: 'Bonjour', message_en: 'Hello' }, 'message', 'Bonjour'],
@@ -128,6 +130,7 @@ describe('prefjs', () => {
       ['en', 'en', { show: true, show_en: false }, 'show', false], // overriden value
       ['en', 'en', { show: true, show_es: false }, 'show', true], // overriden
       ['pt', 'pt', { show: { ok: true }, show_en: { ok: false } }, 'show',  { ok: true }], // objects
+      ['pt', 'pt', { show: { ok: true }, show_es: { ok: false }, show_es_CO: {} }, 'show',  { ok: true }], // parent locale
     ])(
       'Using default locale %p and current locale %p, if given %p and the key %p, returns %p',
       (defaultLocale, currentLocale, obj, key, expected) => {
@@ -140,6 +143,8 @@ describe('prefjs', () => {
     test.each([
       ['en', 'es', { customLocale: 'es' }, { text: 'Hello', text_es: 'Hola' }, 'text', 'Hola'],
       ['en', 'es', { customLocale: 'en' }, { text: 'Hello', text_es: 'Hola' }, 'text', 'Hello'],
+      ['en', 'es', { customLocale: 'es_CO' }, { text: 'Hello', text_es: 'Hola', text_es_CO: 'Probando en Colombia' }, 'text', 'Probando en Colombia'], // direct value from es_CO
+      ['en', 'es', { customLocale: 'es_CO' }, { text: 'Hello', text_es: 'Hola' }, 'text', 'Hola'], // parent fallback to "es"
     ])(
       'Using default locale %p and current locale %p with params %p, if given %p and the key %p, returns %p',
       (defaultLocale, currentLocale, params, obj, key, expected) => {
