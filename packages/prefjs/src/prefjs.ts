@@ -24,7 +24,7 @@ export default class PrefJS {
    */
   updateParentLocale() {
     // Test if the language is something like en_US
-    const localeParts: string[] = this.currentLocale.split['_'] || [];
+    const localeParts: string[] = this.currentLocale.split('_');
     if (localeParts.length > 1) {
       this.parentLocale = localeParts[0]; // en
     } else {
@@ -120,6 +120,13 @@ export default class PrefJS {
   }
 
   /**
+   * @returns The parent locale of the current locale
+   */
+  getParentLocale(): string | null {
+    return this.parentLocale;
+  }
+
+  /**
    * Returns the default locale
    * @example
    * getDefaultLocale()
@@ -154,7 +161,7 @@ export default class PrefJS {
     if (typeof value === 'undefined') {
       // Try to get from the parent locale
       if (this.parentLocale && this.hasLocale(this.parentLocale)) {
-        value = get(this.data[this.parentLocale], path, fallbackValue);
+        value = get(this.data[this.parentLocale], path);
       }
 
       // Try to get from the default locale

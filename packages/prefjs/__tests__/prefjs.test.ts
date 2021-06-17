@@ -82,6 +82,11 @@ describe('prefjs', () => {
     expect(actual).toEqual(expected);
   });
 
+  it('Setting the locale to "en_US" should set the parentLocale to "en"', () => {
+    pref.setCurrentLocale('en_US');
+    expect(pref.getParentLocale()).toEqual('en');
+  });
+
   it('Given a path for "en_US": should get the data from "en_US" if found', () => {
     pref.setCurrentLocale('en_US');
     const actual = pref.get('title');
@@ -94,6 +99,11 @@ describe('prefjs', () => {
     const actual = pref.get('description');
     const expected = data.en.description;
     expect(actual).toEqual(expected);
+  });
+
+  it('Setting the locale to "es_CO" should set the parentLocale to "es"', () => {
+    pref.setCurrentLocale('es_CO');
+    expect(pref.getParentLocale()).toEqual('es');
   });
 
   it('Given a path for "es_CO": should get the data from "en" as a fallback if not found on "es"', () => {
