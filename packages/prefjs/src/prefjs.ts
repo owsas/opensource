@@ -74,7 +74,7 @@ export default class PrefJS {
    *  fr: { title: 'Ma maison', description: 'C\'est ma maison' }
    * });
    */
-  setGlobalData(data: { [key:string]: any }): PrefJS {
+  setGlobalData(data: { [key: string]: any }): PrefJS {
     this.data = data;
     return this;
   }
