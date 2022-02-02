@@ -169,14 +169,14 @@ export default class PrefJS {
 
     // If the value is undefined, try to get the value
     // from the default locale
-    if (typeof value === 'undefined') {
+    if (typeof value === 'undefined' || (typeof value === 'string' && !value?.length)) {
       // Try to get from the parent locale
       if (this.parentLocale && this.hasLocale(this.parentLocale)) {
         value = get(this.data[this.parentLocale], path);
       }
 
       // Try to get from the default locale
-      if (typeof value === 'undefined') {
+      if (typeof value === 'undefined' || (typeof value === 'string' && !value?.length)) {
         value = get(this.data[this.defaultLocale], path, fallbackValue);
       }
     }

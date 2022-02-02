@@ -23,7 +23,8 @@ const data = {
   fr: {
     title: 'Ma page',
     description: 'Mon blog post d\'essai',
-    deep: { test: 'Paramètre d\'essai' }
+    deep: { test: 'Paramètre d\'essai' },
+    fallbackValue: ""
   }
 };
 
@@ -113,6 +114,13 @@ describe('prefjs', () => {
     expect(actual).toEqual(expected);
   });
 
+  it('Given a path for "fr" that has an empty string, it should fall back to "en"', () => {
+    pref.setCurrentLocale('fr');
+
+    const actual = pref.get('fallbackValue');
+    expect(actual).toEqual(data.en.fallbackValue);
+  });
+
   describe('#getFromObject', () => {
     test.each([
       // Different locale as default
@@ -120,17 +128,17 @@ describe('prefjs', () => {
       ['fr', 'en', { message: 'Bonjour', message_en: 'Hello' }, 'message', 'Hello'],
       ['fr', 'en', { message: 123, message_en: 456 }, 'message', 456], // not only strings
       ['fr', 'en', { show: true, show_en: false }, 'show', false], // not only strings
-      ['pt', 'es', { show: { ok: true }, show_es: { ok: false } }, 'show',  { ok: false }], // objects
-      ['pt', 'es_CO', { show: { ok: true }, show_es: { ok: false } }, 'show',  { ok: false }], // parent locale
-      ['pt', 'es_CO', { show: { ok: true }, show_es: { ok: false }, show_es_CO: { ok: 'ok' } }, 'show',  { ok: 'ok' }], // parent locale
+      ['pt', 'es', { show: { ok: true }, show_es: { ok: false } }, 'show', { ok: false }], // objects
+      ['pt', 'es_CO', { show: { ok: true }, show_es: { ok: false } }, 'show', { ok: false }], // parent locale
+      ['pt', 'es_CO', { show: { ok: true }, show_es: { ok: false }, show_es_CO: { ok: 'ok' } }, 'show', { ok: 'ok' }], // parent locale
 
       // Same locale as default
       ['fr', 'fr', { message: 'Bonjour', message_en: 'Hello' }, 'message', 'Bonjour'],
       ['es', 'es', { message: 123, message_en: 456 }, 'message', 123], // not only strings
       ['en', 'en', { show: true, show_en: false }, 'show', false], // overriden value
       ['en', 'en', { show: true, show_es: false }, 'show', true], // overriden
-      ['pt', 'pt', { show: { ok: true }, show_en: { ok: false } }, 'show',  { ok: true }], // objects
-      ['pt', 'pt', { show: { ok: true }, show_es: { ok: false }, show_es_CO: {} }, 'show',  { ok: true }], // parent locale
+      ['pt', 'pt', { show: { ok: true }, show_en: { ok: false } }, 'show', { ok: true }], // objects
+      ['pt', 'pt', { show: { ok: true }, show_es: { ok: false }, show_es_CO: {} }, 'show', { ok: true }], // parent locale
     ])(
       'Using default locale %p and current locale %p, if given %p and the key %p, returns %p',
       (defaultLocale, currentLocale, obj, key, expected) => {
