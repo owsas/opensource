@@ -202,6 +202,9 @@ describe('prefjs', () => {
       });
 
       expect(pref.hasModule('myModule')).toBe(true);
+      expect(pref.hasLocale('es')).toBe(false);
+      expect(pref.hasModule('myModule', 'es')).toBe(false);
+      expect(pref.hasLocale('fr')).toBe(false);
     });
 
     it('Should extend the current locale data', () => {
@@ -220,6 +223,8 @@ describe('prefjs', () => {
 
       expect(pref.hasModule('myModule')).toBe(false);
       expect(pref.hasModule('myModule', 'es')).toBe(true);
+      expect(pref.hasLocale('es')).toBe(true);
+      expect(pref.hasLocale('fr')).toBe(false);
     });
   });
 });

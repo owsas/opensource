@@ -101,7 +101,16 @@ export default class PrefJS {
    * @param locale Optional locale to be configured. Falls back to currentLocale.
    */
   extendLocaleData(moduleName: string, data: any, locale?: string): PrefJS {
-    this.data[locale || this.currentLocale][moduleName] = data;
+    const desiredLocale = locale || this.currentLocale;
+
+    // Create if it does not exist
+    if (!this.data[desiredLocale]) {
+      this.data[desiredLocale] = {};
+    }
+
+    // Add the module data
+    this.data[desiredLocale][moduleName] = data;
+
     return this;
   }
 
@@ -111,7 +120,7 @@ export default class PrefJS {
    * @param locale 
    */
   hasModule(moduleName: string, locale?: string): boolean {
-    return !!this.data[locale || this.currentLocale][moduleName];
+    return !!this.data[locale || this.currentLocale]?.[moduleName];
   }
 
   /**
