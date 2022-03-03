@@ -27,7 +27,8 @@
     "url": "git+https://github.com/owsas/opensource.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "tsc"
   },
   "bugs": {
     "url": "https://github.com/owsas/opensource/issues"

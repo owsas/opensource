@@ -1,0 +1,5 @@
+{
+  "root": "packages/prefjs",
+  "sourceRoot": "packages/prefjs/src",
+  "projectType": "library"
+}

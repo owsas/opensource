@@ -95,6 +95,26 @@ export default class PrefJS {
   }
 
   /**
+   * Adds a new module to the locale data.
+   * @param moduleName
+   * @param data
+   * @param locale Optional locale to be configured. Falls back to currentLocale.
+   */
+  extendLocaleData(moduleName: string, data: any, locale?: string): PrefJS {
+    this.data[locale || this.currentLocale][moduleName] = data;
+    return this;
+  }
+
+  /**
+   * Tells if a module has been loaded
+   * @param moduleName 
+   * @param locale 
+   */
+  hasModule(moduleName: string, locale?: string): boolean {
+    return !!this.data[locale || this.currentLocale][moduleName];
+  }
+
+  /**
    * Tells if the current instance's data
    * has the given locale
    * @param locale
@@ -107,8 +127,8 @@ export default class PrefJS {
    * Gets all the data stored for a single locale
    * @param locale
    */
-  getLocaleData(locale: string): any {
-    return this.data[locale];
+  getLocaleData(locale?: string): any {
+    return this.data[locale || this.currentLocale];
   }
 
   /**
