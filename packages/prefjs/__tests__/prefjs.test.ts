@@ -188,6 +188,40 @@ describe('prefjs', () => {
       expect(pref.hasLocale('es')).toBe(false);
     });
   });
+
+  describe('#extendLocaleData and #hasModule', () => {
+    it('Should extend the current locale data', () => {
+      const pref = new PrefJS({ defaultLocale: 'en', currentLocale: 'en' });
+      pref.setLocaleData('en', { title: 'test' });
+
+      pref.extendLocaleData('myModule', { ok: true });
+
+      expect(pref.getLocaleData()).toEqual({
+        title: 'test',
+        myModule: { ok: true },
+      });
+
+      expect(pref.hasModule('myModule')).toBe(true);
+    });
+
+    it('Should extend the current locale data', () => {
+      const pref = new PrefJS({ defaultLocale: 'en', currentLocale: 'en' });
+
+      pref.setLocaleData('en', { title: 'test' });
+      pref.setLocaleData('es', { title: 'prueba' });
+
+      // Add data to the 'es' locale
+      pref.extendLocaleData('myModule', { ok: true }, 'es');
+
+      expect(pref.getLocaleData('es')).toEqual({
+        title: 'prueba',
+        myModule: { ok: true },
+      });
+
+      expect(pref.hasModule('myModule')).toBe(false);
+      expect(pref.hasModule('myModule', 'es')).toBe(true);
+    });
+  });
 });
 
 describe('#getParentLocale', () => {
