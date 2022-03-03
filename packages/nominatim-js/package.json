@@ -1,6 +1,6 @@
 {
   "name": "nominatim-js",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Unofficial JS SDK for the Nominatim Open Street Map service that allows geocoding and reverse geocoding",
   "keywords": [
     "nominatim",
