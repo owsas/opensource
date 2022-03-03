@@ -12,7 +12,8 @@
     "internationalisation",
     "preferences",
     "config",
-    "locale"
+    "locale",
+    "easy"
   ],
   "directories": {
     "lib": "lib",
