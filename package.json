@@ -36,7 +36,7 @@
     "express": "^4.17.1",
     "is": "^3.3.0",
     "parse": "^3.2.0",
-    "parse-server": "^4.3.0",
+    "parse-server": "^5.1.1",
     "printj": "^1.2.2",
     "superagent": "^6.0.0"
   }
