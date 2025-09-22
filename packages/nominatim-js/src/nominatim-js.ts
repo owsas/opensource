@@ -1,7 +1,7 @@
 import fetch from 'cross-fetch';
 
 interface ICommonParams {
-  format?: 'html' | 'json' | 'xml' | 'jsonv2'
+  format?: 'html' | 'json' | 'xml' | 'jsonv2' | 'geojson' | 
   json_callback?: string
   accept_language?: string
   'accept-language'?: string
